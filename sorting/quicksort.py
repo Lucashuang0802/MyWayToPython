@@ -7,11 +7,11 @@ class QuickSort:
         self.quicksort(self.data, 0, len(self.data) - 1)
 
     def quicksort(self, arr, left, right):
+        if left >= right:
+            return
         index = self.partition(arr, left, right)
-        if (left < index - 1):
-            self.quicksort(arr, left, index - 1)
-        if (index < right):
-            self.quicksort(arr, index, right)
+        self.quicksort(arr, left, index - 1)
+        self.quicksort(arr, index, right)
 
     def partition(self, arr, left, right):
         pivot = arr[(left + right) // 2]
